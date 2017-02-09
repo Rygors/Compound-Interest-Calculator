@@ -1,0 +1,32 @@
+import java.util.*;
+
+public class CompoundIntrestCalculator {
+  public static void main(String[]args) {
+    Scanner cold = new Scanner(System.in);
+    Double aFV, mFV, r, P, y, m, tRate, parEquals, pow;
+    
+    System.out.print("Current Principal: ");
+    P = cold.nextDouble();
+    System.out.print("Years to grow:     ");
+    y = cold.nextDouble();
+    System.out.print("Interest rate:     ");
+    r = cold.nextDouble();
+    
+    System.out.print("Compound interest how many times annually? 1-12");
+    m = cold.nextDouble();
+    if (m != 1) {
+      tRate = r * 0.01;
+      parEquals = 1 + tRate / m;
+      pow = Math.pow(parEquals, y * m);
+      mFV = P*pow;
+      System.out.println("Your future value is: " + mFV);
+    }
+    else {
+      tRate = r * 0.01;
+      parEquals = 1 + tRate;
+      pow = Math.pow(parEquals, y);
+      aFV = P*pow;
+      System.out.println("Your future value is: " + aFV);
+    }
+  }
+}
